@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Quête Java UI</string>
-    <string name="welcome_text">Welcome to the Wild Code School!</string>
-    <string name="want_to_be_wilder_text">Yes, I want to be a Wilder!</string>
+    <string name="welcome_text">Welcome to the Wild Code School</string>
+    <string name="want_to_be_wilder_text">Yes, I want to be a Wilder</string>
     <string name="firstname_text">Firstname</string>
     <string name="lastname_text">Lastname</string>
     <string name="accept_text">ACCEPT</string>
