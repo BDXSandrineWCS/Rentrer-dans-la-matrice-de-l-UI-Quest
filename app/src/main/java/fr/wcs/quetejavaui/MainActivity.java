@@ -14,10 +14,12 @@ import android.text.InputType;
 import android.util.LayoutDirection;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Space;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         Context context=getApplicationContext();
         LinearLayout layout = (LinearLayout) findViewById(R.id.mainLinearLayout);
+
 
         // Create welcome TextView programmatically.
         TextView welcomeTV = new TextView(context);
@@ -51,35 +54,38 @@ public class MainActivity extends AppCompatActivity {
         layout.addView(welcomeTV);
 
 
+
         // Create wantBeWilderCB CheckBox programmatically.
         CheckBox wantBeWilderCB = new CheckBox(context);
         // Create wantBeWilderCB CheckBox Layout
-        LinearLayout.LayoutParams wantBeWilderCBLayout = new LinearLayout.LayoutParams(
+
+        LinearLayout.LayoutParams wantBeWilderCBLayout=  new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT, // Width of TextView
                 LinearLayout.LayoutParams.WRAP_CONTENT); // Height of TextView
+                wantBeWilderCBLayout.gravity=Gravity.CENTER_HORIZONTAL;
         // Apply the layout parameters to wantBeWilderCB CheckBox widget
-        wantBeWilderCB.setLayoutParams(welcomeTVLayout);
+        wantBeWilderCB.setLayoutParams(wantBeWilderCBLayout);
         //change wantBeWilderCB CheckBox properties
-        wantBeWilderCB.setGravity(Gravity.CENTER_HORIZONTAL);
         wantBeWilderCB.setText(R.string.want_to_be_wilder_text);
         //needed for my phone
-        wantBeWilderCB.setTextColor(Color.parseColor("#000000"));
+         wantBeWilderCB.setTextColor(Color.parseColor("#000000"));
         // add wantBeWilderCB CheckBox to mainLayaout
         layout.addView(wantBeWilderCB);
 
-        //create  textsEditsButtonLL linearLayout
-        LinearLayout textsEditsButtonLL = new LinearLayout(context);
-        // Create textsEditsButtonLL linearLayout LinearLayout parameters
-        LinearLayout.LayoutParams textsEditsButtonLLP = new LinearLayout.LayoutParams(
+
+        //create  firstnameLayout linearLayout
+        LinearLayout firstnameLayout = new LinearLayout(context);
+        // Create firstnameLayout linearLayout LinearLayout parameters
+        LinearLayout.LayoutParams firstnameLayoutParameters = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, // Width of TextView
                 LinearLayout.LayoutParams.WRAP_CONTENT); // Height of TextView
-        // Apply the layout parameters to textsEditsButtonLL linearLayout
-       textsEditsButtonLL.setLayoutParams(textsEditsButtonLLP);
-       textsEditsButtonLL.setOrientation(LinearLayout.HORIZONTAL);
-       textsEditsButtonLL.setWeightSum(2);
-       textsEditsButtonLL.setBackgroundColor(Color.parseColor("#374081"));
-        // add textsEditsButtonLL linearLayout to mainLayaout
-        layout.addView(textsEditsButtonLL);
+        // Apply the layout parameters to firstnameLayout linearLayout
+       firstnameLayout.setLayoutParams(firstnameLayoutParameters);
+       firstnameLayout.setOrientation(LinearLayout.HORIZONTAL);
+       firstnameLayout.setWeightSum(2);
+        // add firstnameLayout linearLayout to mainLayaout
+        layout.addView(firstnameLayout);
+
 
         // Create firstnameET EditText programmatically.
         EditText firstnameET = new EditText(context);
@@ -87,63 +93,93 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout.LayoutParams firstnameETLayout = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, // Width of TextView
                 LinearLayout.LayoutParams.WRAP_CONTENT); // Height of TextView
+                firstnameETLayout.weight=1;
         // Apply the layout parameters to firstnameET EditText widget
-        firstnameET.setLayoutParams(welcomeTVLayout);
+        firstnameET.setLayoutParams(firstnameETLayout);
         //change firstnameET EditText properties
         firstnameET.setEms(10);
-        firstnameET.setGravity(1);
         firstnameET.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
         firstnameET.setHint(R.string.firstname_text);
         //needed for my phone
         firstnameET.setHintTextColor(Color.GRAY);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            firstnameET.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_START);
-        }
-        // add firstnameET EditText to mainLayaout
-        layout.addView(firstnameET);
+        // add firstnameET EditText to firstnameLayaout
+        firstnameLayout.addView(firstnameET);
+
+        // Create spaceFirstname Space programmatically.
+        Space spaceFirstname = new Space(context);
+        LinearLayout.LayoutParams spaceFirstnameLayout = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, // Width of TextView
+                0); // Height of TextView
+        spaceFirstnameLayout.weight=1;
+        // Apply the layout parameters to spaceFirstname widget
+        spaceFirstname.setLayoutParams(spaceFirstnameLayout);
+        // add spaceFirstname  to  firstnameLayaout
+        firstnameLayout.addView(spaceFirstname);
 
 
-/*
-        <LinearLayout textsEditsButtonLL linearLayout
+        //create  lastnameLayout linearLayout
+        LinearLayout lastnameLayout = new LinearLayout(context);
+        // Create lastnameLayout linearLayout LinearLayout parameters
+        LinearLayout.LayoutParams lastnameLayoutParameters = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, // Width of TextView
+                LinearLayout.LayoutParams.WRAP_CONTENT); // Height of TextView
+        // Apply the layout parameters to lastnameLayout linearLayout
+        lastnameLayout.setLayoutParams(lastnameLayoutParameters);
+        lastnameLayout.setOrientation(LinearLayout.HORIZONTAL);
+        lastnameLayout.setWeightSum(2);
+        // add lastnameLayout linearLayout to mainLayaout
+        layout.addView(lastnameLayout);
+
+
+        // Create lastnameET EditText programmatically.
+        EditText lastnameET = new EditText(context);
+        // Create lastnameET EditText Layout
+        LinearLayout.LayoutParams lastnameETLayout = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, // Width of TextView
+                LinearLayout.LayoutParams.WRAP_CONTENT); // Height of TextView
+                lastnameETLayout.weight=1;
+        // Apply the layout parameters to lastnameET EditText widget
+        lastnameET.setLayoutParams(lastnameETLayout);
+        //change lastnameET EditText properties
+        lastnameET.setEms(10);
+        lastnameET.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
+        lastnameET.setHint(R.string.lastname_text);
+        //needed for my phone
+        lastnameET.setHintTextColor(Color.GRAY);
+
+        // add lastnameET EditText to  lastnameLayaout
+        lastnameLayout.addView(lastnameET);
+
+
+        // Create spaceLastname Space programmatically.
+        Space spaceLastname = new Space(context);
+        LinearLayout.LayoutParams spaceLastnameLayout = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, // Width of TextView
+                0); // Height of TextView
+                spaceLastnameLayout.weight=1;
+        // Apply the layout parameters to spaceLastname widget
+        spaceLastname.setLayoutParams(spaceLastnameLayout);
+        // add spaceLastname to lastnameLayaout
+        lastnameLayout.addView(spaceLastname);
+
+
+        // Create acceptB Button programmatically.
+        Button  acceptB= new Button(context);
+        LinearLayout.LayoutParams acceptBLayout = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT, // Width of TextView
+                LinearLayout.LayoutParams.WRAP_CONTENT); // Height of TextView
+        // Apply the layout parameters to acceptB widget
+        acceptB.setLayoutParams(acceptBLayout);
+        //change accept B button properties
+        acceptB.setText(R.string.accept_text);
+        // add acceptB to mainLayaout
+        layout.addView(acceptB);
 
 
 
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"/>
 
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2" >
-
-            <EditText
-                android:id="@+id/lastname"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:layout_weight="1"
-                android:inputType="textPersonName"
-                android:hint="Lastname" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"/>
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/validate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ACCEPT" />
-    </LinearLayout>
-*/
 
     }
 }
