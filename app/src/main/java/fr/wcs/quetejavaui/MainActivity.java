@@ -102,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
         firstnameET.setHint(R.string.firstname_text);
         //needed for my phone
         firstnameET.setHintTextColor(Color.GRAY);
+        firstnameET.setTextColor(Color.parseColor("#000000"));
         // add firstnameET EditText to firstnameLayaout
         firstnameLayout.addView(firstnameET);
 
@@ -146,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
         lastnameET.setHint(R.string.lastname_text);
         //needed for my phone
         lastnameET.setHintTextColor(Color.GRAY);
-
+        lastnameET.setTextColor(Color.parseColor("#000000"));
         // add lastnameET EditText to  lastnameLayaout
         lastnameLayout.addView(lastnameET);
 
