@@ -2,25 +2,31 @@ package fr.wcs.quetejavaui;
 
 
 import android.content.Context;
-import android.content.res.ColorStateList;
+
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
-import android.support.v4.widget.CompoundButtonCompat;
+
+
+import android.preference.CheckBoxPreference;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
 import android.text.InputType;
-import android.util.LayoutDirection;
+
+import android.util.Size;
+import android.view.ContextThemeWrapper;
 import android.view.Gravity;
-import android.view.View;
+
+import android.webkit.WebSettings;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+
 import android.widget.Space;
 import android.widget.TextView;
+
+import java.awt.font.TextAttribute;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -56,7 +62,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Create wantBeWilderCB CheckBox programmatically.
-        CheckBox wantBeWilderCB = new CheckBox(context);
+        //style needed for my phone
+        CheckBox wantBeWilderCB = new CheckBox(new ContextThemeWrapper(this, R.style.Widget_AppCompat_CompoundButton_CheckBox), null, 0);
         // Create wantBeWilderCB CheckBox Layout
 
         LinearLayout.LayoutParams wantBeWilderCBLayout=  new LinearLayout.LayoutParams(
